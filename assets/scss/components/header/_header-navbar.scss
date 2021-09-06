@@ -1,21 +1,105 @@
 .header-navbar{
     &__btn {
-        display: none;
+        width: 30px;
+        height: 22.5px;
+        position: relative;
+        margin: 25px 0 25px auto;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
+        cursor: pointer;
+        
+        @include md-min {
+            display: none;
+        }
+
+        &-row {
+            display: block;
+            position: absolute;
+            height: 4.5px;
+            width: 100%;
+            background: $color-light;
+            border-radius: 4.5px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: .25s ease-in-out;
+
+            &:nth-child(1) {
+                top: 0px;
+            }
+              
+            &:nth-child(2) {
+                top: 9px;
+            }
+              
+            &:nth-child(3) {
+                top: 18px;
+            }
+        }
+
+        &--active span {
+            &:nth-child(1) {
+                top: 19px;
+                transform: rotate(135deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+                left: -30px;
+            }
+
+            &:nth-child(3) {
+                top: 18px;
+                transform: rotate(-135deg);
+            }
     }
+
+}    
 
     &__list {
         @include unlist (0 -20px 0 0);
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
-        justify-content: end;
+
+        
+        @include md-min {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
+            justify-content: end;
+        }
+        @include md {
+            display: none;
+
+            &--active {
+                display: block;
+                position: absolute;
+                top: 100%;
+                right: $gap-x2;
+                text-align: right;
+                background-color: rgba($color-gray-dark, 0.9);
+                @include box-shadow
+            }
+        }
     }
 
     &__item {
-        margin: 0 $gap-sm;
+        @include md-min {
+            margin: 0 $gap-sm;
+        }
+        @include md {
+            margin: $gap-sm;
+        }
+        
     }
 
     &__link {
-        padding: $gap $gap-sm;
+        @include md-min {
+            padding: $gap $gap-sm;
+        }
+
+        @include md {
+            padding: $gap-sm;
+        }
+
+        display: block;
         font-size: 1.125rem;
         transition: color 0.5s;
 
@@ -25,3 +109,10 @@
         }
     }
 }
+
+  
+
+  
+
+  
+  
