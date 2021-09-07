@@ -19,7 +19,10 @@
     }
 
     &__title {
-    @include abs-position;
+
+        letter-spacing: 0.1em;
+
+        @include abs-position;
         z-index: 1;
         margin: 0;
 
