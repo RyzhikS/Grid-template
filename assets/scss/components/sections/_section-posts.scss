@@ -1,0 +1,131 @@
+.posts {
+    & h2 {
+        margin-top: 0;
+    }
+
+    @include lg-min {
+        padding: $gap-x5 0;
+    }
+
+    @include lg-md {
+        padding: $gap-x4 0;
+    }
+
+    @include md {
+        padding: $gap-x3 0;
+    }
+
+    &__container {
+        @extend %container;
+    }
+
+    &__grid {
+        display: grid;
+        gap: $gap;
+        padding-bottom: $gap;
+
+        @include lg-min{
+            grid-template-areas: "c1 c1 c2 c3" "c4 c5 c6 c6";
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @include lg-md{
+            grid-template-areas: "c1 c1 c2" "c3 c4 c4" "c5 c5 c6";
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include md-sm{
+            grid-template-areas: "c1 c2" "c3 c4" "c5 c6";
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include sm{
+            grid-template-areas: "c1" "c2" "c3" "c4" "c5" "c6";
+            grid-template-columns: 1fr;
+        }
+
+        
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+
+        & .btn--primary {
+            @include sm-min {
+                min-width: 350px;
+            }
+        }
+    }
+}
+
+.post-item {
+    background-color: #f2f2f2;
+    transition: background-color 0.5s;
+
+    &:hover {
+        background-color: #d8d8d8;
+
+        .post-item__image img {
+            transform: scale(1.1);
+        }
+
+        h3 {
+            color: $color-primary;
+        }
+
+        p {
+            color: $color-primary; 
+        }
+    }
+
+    &__link {
+        display: grid;
+        overflow: hidden;
+        height: 100%;
+        grid-template-rows: 300px 1fr;
+    }
+
+    &__image {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        background-color: $color-gray;
+        overflow: hidden;
+
+        & img {
+            width: 100%;
+            transition: transform 0.5s;
+            object-fit: cover;
+        }
+    }
+
+    &__text {
+        display: grid;
+        padding: $gap;
+        align-content: center;
+
+        & h3 {
+            font-family: $font-header;
+            @extend %center-text;
+        }
+
+        & p {
+            @extend %center-text;
+            letter-spacing: normal;
+        }
+    }
+}
+
+@for $n from 1 through 6 {
+    .post-item:nth-of-type(#{$n}) {
+        grid-area: c#{$n};
+    }
+}
+.post-item__link {
+}
+.post-item__image {
+}
+.post-item__text {
+}
+.posts__actions{}

@@ -7,3 +7,8 @@
     padding-left: $gap;
     padding-right: $gap;
 }
+
+%center-text{
+    text-align: center;
+    transition: color 0.5s;
+}
