@@ -47,5 +47,11 @@
     &__actions {
         display: flex;
         justify-content: center;
+
+        & .btn--primary {
+            @include sm-min {
+                min-width: 350px;
+            }
+        }
     }
 }
