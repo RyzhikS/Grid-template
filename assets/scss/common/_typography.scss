@@ -77,12 +77,18 @@ p {
     color: $color-gray;
 }
 
+input {
+    &:focus {
+        outline: none;
+    }
+}
+
 .btn {
     display: flex;
     align-items: center;
     justify-content: center;
     letter-spacing: 0.1em;
-    transition: background-color 0.5s;
+    transition: background-color 0.5s, border-color 0.5s;
 
     &:hover,
     &:focus {

@@ -408,6 +408,10 @@ p {
   color: #637588;
 }
 
+input:focus {
+  outline: none;
+}
+
 .btn {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -419,9 +423,9 @@ p {
       -ms-flex-pack: center;
           justify-content: center;
   letter-spacing: 0.1em;
-  -webkit-transition: background-color 0.5s;
-  -o-transition: background-color 0.5s;
-  transition: background-color 0.5s;
+  -webkit-transition: background-color 0.5s, border-color 0.5s;
+  -o-transition: background-color 0.5s, border-color 0.5s;
+  transition: background-color 0.5s, border-color 0.5s;
 }
 .btn:hover, .btn:focus {
   background-color: #d66926;
